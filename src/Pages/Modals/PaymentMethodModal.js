@@ -6,12 +6,11 @@ import axios from 'axios'; // We will use axios to make requests to the backend
 import { toast } from 'react-toastify'; // Import toast function
 import 'react-toastify/dist/ReactToastify.css'; // Import default styles
 import '../Styles/CustomToast.css';
-import logo from '../../Assets/logo-razorpay.jpeg'
+import logo from '../../Assets/logo-razorpay.jpeg';
 
 const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, userData }) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
   const [razorpayLoaded, setRazorpayLoaded] = useState(false);
-  //let paymentOrderId = null;
 
   useEffect(() => {
     // Dynamically load the Razorpay script
@@ -61,7 +60,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
 
     try {
       // Step 1: Request a Razorpay order from the backend
-      const response = await axios.post('http://localhost:5000/api/create-order', { amount: totalAmount * 100 }); // Amount in paise
+      const response = await axios.post('https://figure-fiesta-vercel-2jt2.vercel.app/api/create-order', { amount: totalAmount * 100 }); // Amount in paise
       const orderData = response.data;
 
       // Step 2: Initialize Razorpay with the order data
@@ -88,10 +87,6 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
 
       const razorpay = new window.Razorpay(options);
       razorpay.open();
-      //console.log("orderData.id", orderData.id);
-      //setOnlineOrderId(orderData.id);
-      //OnlineOrderId.current = orderData.id;
-      //paymentOrderId = orderData.id;
     } catch (error) {
       console.error('Error initiating Razorpay payment:', error);
       toast.error('There was an issue with the payment process. Please try again.');
@@ -100,11 +95,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
 
   const handlePaymentSuccess = (paymentResponse, paymentOrderId) => {
     // Send payment details to the backend for verification and order processing
-    
-    
-    //OnlinePaymentId.current = paymentResponse.razorpay_payment_id;
-    //console.log("paymentResponse.razorpay_payment_id",paymentResponse.razorpay_payment_id);
-    axios.post('http://localhost:5000/api/payment-success', {
+    axios.post('https://figure-fiesta-vercel-2jt2.vercel.app/api/payment-success', {
       paymentId: paymentResponse.razorpay_payment_id,
       orderId: paymentResponse.razorpay_order_id,
       signature: paymentResponse.razorpay_signature,
@@ -112,9 +103,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
       .then(response => {
         if (response.data.success) {
           toast.success('Payment successful', { className: 'custom-toast-success' });
-          //setOnlinePaymentId(paymentResponse.razorpay_payment_id);
           onPaymentSelect('online', paymentResponse.razorpay_payment_id, paymentOrderId);
-          
         } else {
           toast.error('Payment verification failed');
         }
