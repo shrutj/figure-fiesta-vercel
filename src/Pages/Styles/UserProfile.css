@@ -1,0 +1,346 @@
+/* General Styles for the UserProfile Component */
+.user-profile-container {
+    padding: 2rem;
+    background-color: #f0f4f7; /* Soft background */
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.user-profile {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* Header Section */
+.user-profile .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.user-profile .UP-header-h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.user-profile .orders-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.user-profile .orders-btn:hover {
+    background-color: #e65100; /* Darker shade on hover */
+    transform: scale(1.05);
+}
+
+/* Form Group Styling */
+.user-profile .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.user-profile .form-group label {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile .form-group input,
+.user-profile .form-group select,
+.user-profile .form-group textarea {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.user-profile .form-group input:focus,
+.user-profile .form-group select:focus,
+.user-profile .form-group textarea:focus {
+    outline: none;
+    border-color: #ff5722;
+    background-color: #fff;
+}
+
+.user-profile .form-group textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* Icons in labels */
+.user-profile .form-group label svg {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: #ff5722;
+}
+
+/* Buttons Section */
+.user-profile .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.user-profile .edit-btn,
+.user-profile .save-btn,
+.user-profile .cancel-btn,
+.user-profile .delete-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;  /* Reduced border radius for delete button */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.user-profile .edit-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.user-profile .edit-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.user-profile .save-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.user-profile .save-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.user-profile .cancel-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.user-profile .cancel-btn:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+}
+
+.user-profile .delete-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.user-profile .delete-btn:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* Modal Styles */
+.user-profile .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it sits above other content */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.user-profile .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+.user-profile .modal-content h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.user-profile .modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.user-profile .modal-buttons button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.user-profile .modal-buttons .cancel-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+.user-profile .modal-buttons .cancel-btn:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
+}
+
+.user-profile .modal-buttons .delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.user-profile .modal-buttons .delete-btn:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    .user-profile .user-profile {
+        padding: 1.5rem;
+    }
+
+    .user-profile .UP-header-h1 {
+        font-size: 1.8rem;
+    }
+
+    .user-profile .orders-btn {
+        padding: 0.75rem 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-profile .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .user-profile .buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .user-profile .edit-btn,
+    .user-profile .save-btn,
+    .user-profile .cancel-btn {
+        width: 100%;
+    }
+
+    .user-profile .user-profile {
+        padding: 1.2rem;
+    }
+
+    .user-profile .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .user-profile .form-group label {
+        font-size: 1rem;
+    }
+
+    .user-profile .form-group input,
+    .user-profile .form-group select,
+    .user-profile .form-group textarea {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-profile-container {
+        padding: 1rem;
+    }
+
+    .user-profile {
+        padding: 1rem;
+    }
+
+    .user-profile .UP-header-h1 {
+        font-size: 1.6rem;
+    }
+
+    .user-profile .orders-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .user-profile .form-group {
+        margin-bottom: 0.8rem;
+    }
+
+    .user-profile .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .user-profile .form-group input,
+    .user-profile .form-group select,
+    .user-profile .form-group textarea {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .user-profile .buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .user-profile .edit-btn,
+    .user-profile .save-btn,
+    .user-profile .cancel-btn {
+        width: 100%;
+        padding: 0.7rem;
+    }
+}

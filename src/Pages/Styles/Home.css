@@ -1,0 +1,462 @@
+/* Font Imports from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap');
+
+/* Container for the Home page */
+.home-container {
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+}
+
+/* Slideshow Section */
+.slideshow-container {
+    height: 360px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slideAnimation 10s infinite;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes slideAnimation {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Items Section */
+.items-section {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.items-section h2 {
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.75rem;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+.items-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f57c00; /* Orange underline */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.items-section h2:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Item Card Adjustments */
+.item-cards {
+    display: flex;
+    gap: 1rem; /* Smaller gap */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 0.25rem; /* Reduced padding */
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.item-card {
+    flex: 0 0 auto;
+    width: 180px; /* Standardized card width */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-bottom: 7.5px;
+}
+
+.item-card:hover {
+    transform: translateY(-6px); /* Hover effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.item-card img {
+    width: 100%;
+    height: 50%; /* Make image take up half of the card height */
+    object-fit: contain; /* Ensure image fits correctly */
+    border-radius: 12px 12px 0 0; /* Rounded top corners */
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Make the details section take up remaining space */
+}
+
+.item-details h3 {
+    font-size: 1.05rem; /* Increased title font size */
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Ensure title truncates */
+}
+
+.item-details p {
+    font-size: 0.95rem; /* Increased description font size */
+    color: #777;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2; /* Display only 2 lines of description */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1rem; /* Increased price font size */
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.85rem; /* Increased crossed-out price font size */
+}
+
+.item-price {
+    font-size: 1.1rem; /* Increased price font size */
+    font-weight: bold;
+    color: #f57c00; /* Orange color for the price */
+}
+
+.btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    width: 100%; /* Full width on small screens */
+}
+.btn:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+/* Category Cards Section */
+.categories-section {
+    margin-bottom: 2rem;
+}
+
+.categories-section h2 {
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.75rem;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+.categories-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f57c00; /* Orange underline */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.categories-section h2:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.category-cards {
+    display: flex;
+    overflow-x: auto;  /* Allows horizontal scrolling */
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;  /* Ensure there's space for scrolling */
+    position: relative;
+    gap: 1rem;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    width: 150px; /* Fixed width for categories */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category-card p {
+    font-weight: bold;
+    color: #333;
+    margin-top: 1rem;
+}
+
+/* Custom Scrollbar for horizontal scrolling */
+.category-cards::-webkit-scrollbar {
+    height: 8px;
+}
+
+.category-cards::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.category-cards::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.category-cards::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Price container */
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Original price with strike-through */
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px;
+}
+
+/* Final price */
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    /* General Container Adjustments */
+    .home-container {
+        padding: 0;
+        padding-bottom: 0.2rem; /* Slightly reduced padding */
+        font-size: 0.8rem; /* Smaller base font size */
+    }
+
+    /* Categories Section */
+    .categories-section {
+        margin-bottom: 1.2rem;
+    }
+
+    .categories-section h2 {
+        font-size: 1.25rem; /* Even smaller heading size */
+        margin-bottom: 0.5rem;
+    }
+
+    /* Category Cards */
+    .category-cards {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.25rem; /* Even smaller gap */
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 0.25rem; /* Reduced padding for scrolling */
+        position: relative;
+        gap: 0.8rem;
+    }
+
+    .category-card {
+        flex: 0 0 auto;
+        width: 110px; /* Smaller card width */
+        padding: 1rem; /* Reduced padding */
+        text-align: center;
+        font-size: 0.75rem; /* Smaller text size */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 50%;
+    }
+
+    .category-card img {
+        width: 100%;
+        height: 60px; /* Reduced image height */
+        object-fit: contain;
+        border-radius: 6px;
+    }
+
+    .category-card p {
+        margin-top: 0.25rem;
+        font-size: 0.75rem; /* Smaller font size for text */
+    }
+
+    /* Item Cards Section */
+    .items-section h2 {
+        font-size: 1.2rem; /* Smaller heading size */
+        margin-bottom: 0.25rem;
+    }
+
+    /* Item Cards */
+    .item-cards {
+        display: flex;
+        gap: 0.5rem; /* Smaller gap */
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 0.25rem; /* Reduced padding */
+        position: relative;
+    }
+
+    .item-card {
+        flex: 0 0 auto;
+        width: 130px; /* Even smaller card width */
+        padding: 0.3rem; /* Reduced padding */
+        text-align: center;
+        font-size: 0.8rem; /* Smaller font size */
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: auto;
+    }
+
+    .item-card:hover {
+        transform: translateY(-3px); /* Slight hover effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .item-card img {
+        width: 100%;
+        height: 100px; /* Reduced image height */
+        object-fit: contain;
+        border-radius: 6px;
+    }
+
+    .item-details h3 {
+        font-size: 1rem; /* Smaller product name */
+        text-align: center;
+    }
+
+    .item-details p {
+        font-size: 0.75rem; /* Smaller description text */
+        color: #777;
+    }
+
+    .price-container {
+        display: flex;
+        align-items: center;
+        gap: 6px; /* Even smaller gap */
+        font-size: 0.75rem; /* Reduced price font size */
+    }
+
+    .original-price {
+        font-size: 0.75rem;
+        text-decoration: line-through;
+        color: #888;
+    }
+
+    .item-price {
+        font-size: 1rem; /* Smaller price font size */
+        font-weight: bold;
+        color: #000;
+    }
+
+    /* Button Styling */
+    .btn {
+        background-color: #ff5722;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, transform 0.2s;
+        margin-top: 10px;
+        width: 100%; /* Full width on small screens */
+    }
+
+    .btn:hover {
+        background-color: #e64a19; /* Darker shade on hover */
+        transform: translateY(-2px);
+    }
+
+    /* Slideshow Section */
+    .slideshow-container {
+        height: 360px; /* Smaller height */
+    }
+
+    .slide img {
+        height: 100%; /* Make images fit better */
+    }
+
+    /* Custom Scrollbar Adjustments */
+    .category-cards::-webkit-scrollbar,
+    .item-cards::-webkit-scrollbar {
+        height: 5px; /* Smaller scrollbar height */
+    }
+
+    .category-cards::-webkit-scrollbar-track,
+    .item-cards::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 4px;
+    }
+
+    .category-cards::-webkit-scrollbar-thumb,
+    .item-cards::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+    }
+
+    .category-cards::-webkit-scrollbar-thumb:hover,
+    .item-cards::-webkit-scrollbar-thumb:hover {
+        background: #999;
+    }
+}

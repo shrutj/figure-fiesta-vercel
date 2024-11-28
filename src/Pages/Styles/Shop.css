@@ -1,0 +1,190 @@
+/* Shop.css */
+
+/* Global styles */
+.shop-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.shop-item-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Item Card Styles */
+.shop-item-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 1 1 auto; /* Allow flex-grow */
+    max-width: calc(25% - 30px); /* Default for larger screens */
+}
+
+.shop-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.shop-item-image {
+    width: 100%;
+    height: 200px; /* Fixed height */
+    object-fit: contain; /* Preserve aspect ratio */
+}
+
+.shop-item-details {
+    padding: 15px;
+}
+
+.shop-price-container {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.shop-original-price {
+    text-decoration: line-through;
+    color: #999; /* Optional: Change color to a lighter shade */
+    margin-right: 10px; /* Optional: Add some spacing to the right */
+}
+
+/* Responsive styles for larger screens (1200px and above) */
+@media (min-width: 1200px) {
+    .shop-item-card {
+        max-width: calc(25% - 30px); /* 4 items side by side */
+    }
+}
+
+/* Responsive styles for medium screens (between 800px and 1200px) */
+@media (max-width: 1199px) and (min-width: 800px) {
+    .shop-item-card {
+        max-width: calc(33.33% - 30px); /* 3 items side by side */
+    }
+}
+
+/* Responsive styles for small screens (between 600px and 800px) */
+@media (max-width: 799px) and (min-width: 450px) {
+    .shop-item-card {
+        max-width: calc(50% - 30px); /* 2 items side by side */
+    }
+}
+
+/* Responsive styles for extra small screens (below 480px) */
+/* Responsive styles for extra small screens (below 480px) */
+@media (max-width: 449px) {
+    .shop-item-card {
+        display: flex; /* Use flex layout */
+        flex-direction: row; /* Image on the left, details on the right */
+        max-width: 100%; /* 1 item per line */
+    }
+
+    .shop-item-image {
+        width: 50%; /* Set width to 50% */
+        height: auto; /* Adjust height to maintain aspect ratio */
+        object-fit: contain; /* Preserve aspect ratio */
+    }
+
+    .shop-item-details {
+        padding: 15px;
+        width: 50%; /* Take the other 50% */
+    }
+
+    .shop-btn {
+        width: 100%; /* Full width for buttons */
+    }
+}
+
+
+/* Button Styles */
+.shop-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    width: 100%; /* Full width on small screens */
+}
+
+.shop-btn:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+/* Input and Select Styles */
+.shop-sort-filter {
+    border-radius: 20px;
+    padding: 5px;
+    width: 100%; /* Full width */
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.shop-search-filter {
+    border-radius: 20px;
+    height: 45px;
+    padding: 5px;
+    width: 70%; /* Full width */
+    margin-right: 10px;
+    font-size: 1rem;
+    border: 1px solid #ff5722;
+}
+
+.shop-sort-filter-container{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-around;
+    padding: 0%;
+}
+
+.shop-filter {
+    display: flex;
+    flex-direction: row; /* Stack vertically on small screens */
+}
+
+@media (max-width: 650px) {
+    .shop-search-filter {
+        width: 100%; 
+        margin-bottom: 8px;
+    }
+    .shop-sort-filter {
+        border-radius: 20px;
+        padding: 5px;
+        width: 100%; /* Full width */
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+    .shop-sort-filter-container{
+        width: 100%;
+    }
+    .shop-filter {
+        flex-direction: column; /* Align horizontally on larger screens */
+    }
+}
+
+
+
+/* Typography Styles */
+.shop-item-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.shop-item-description {
+    height: 50px;
+    font-size: 0.9rem;
+    color: #555;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    overflow: hidden;
+}

@@ -1,0 +1,25 @@
+/* Remove the default icon */
+.custom-toast-success .Toastify__icon {
+    display: none; /* Hide the default icon */
+}
+
+/* Customize the toast container */
+.custom-toast-success {
+    background-color: white; /* Set background to white */
+    color: #f57c00; /* Set text color to match your border */
+}
+
+/* Customize the toast body text */
+.custom-toast-success .Toastify__toast-body {
+    color: #f57c00; /* Set text color to match your border */
+}
+
+/* Remove the default green bottom border */
+.Toastify__toast--success {
+    border-bottom: none; /* Remove the default green bottom border */
+}
+
+.custom-toast-info, .custom-toast-error {
+    background-color: white; /* Set background to white */
+    color: #f57c00; /* Set text color to match your border */
+}

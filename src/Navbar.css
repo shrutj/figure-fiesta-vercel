@@ -1,0 +1,360 @@
+/* Navbar Styling */
+.navbar {
+  background-color: #ff7043;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; /* Make navbar sticky */
+  top: 0; /* Stick to the top of the page */
+  z-index: 10; /* Ensure navbar is above other elements */
+  width: 100%; /* Ensure the navbar spans the full width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow to differentiate the navbar */
+  transition: top 0.3s ease-in-out; /* Smooth transition when scrolling */
+}
+
+/* Logo Styles */
+.navbar .logo img, .desktop-logo img {
+  height: 55px;
+  width: auto;
+}
+
+/* Search Bar Styles */
+.search-bar-desktop,
+.search-bar-mobile {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background-color: #f4f4f4;
+  width: 250px;
+}
+
+.search-bar-desktop {
+  margin-right: 20px;
+  width: 30%;
+}
+
+.search-bar-mobile {
+  width: 60%;
+  margin-right: 10px;
+}
+
+/* Mobile Navbar (below 600px) */
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.hamburger {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 20; /* Ensure hamburger is above everything */
+}
+
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background-color: #cb3f14ca;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  z-index: 15; /* Ensure sidebar overlays the content */
+  overflow-y: scroll;
+  padding-bottom: 50px;
+}
+
+.side-bar.open {
+  transform: translateX(0);
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.nav-item {
+  padding: 15px ;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #cfcece;
+  background-color: #555;
+  border-radius: 30px;
+  font-size: 22px;
+}
+
+.sidebar-footer{
+  text-align: left;
+}
+
+.sidebar-footer:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
+.cart-badge-mob{
+  background-color: #45a049;
+  color: white;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 50%;
+  position: absolute;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+/* Desktop Navbar (above 600px) */
+.desktop-nav {
+  display: flex;
+  justify-content: center; /* Center the content (including the search bar) */
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.desktop-logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 25px;
+  position: absolute;
+  font-size: larger;
+  right: 20px; /* Keep the menu items aligned to the right */
+}
+
+.search-bar-desktop {
+  width: 30%; /* Adjust width as necessary */
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0 auto; /* Center the search bar */
+}
+
+.nav-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-icon:hover {
+  transform: scale(1.4);
+}
+
+.cart-badge-desktop {
+  background-color: #45a049;
+  color: white;
+  font-size: 12px;
+  padding: 1px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
+
+/* Tooltip styling */
+.nav-tooltip {
+  display: none;
+  position: absolute;
+  top: 80%; /* Position tooltip below the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-icon:hover .nav-tooltip {
+  display: block;
+  opacity: 1;
+}
+
+/* Suggestions dropdown */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgb(209, 208, 208);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 5px;
+  color: #ff7043;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.suggestion-item {
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #898888;
+}
+
+/* Media Queries */
+@media (max-width: 800px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  .desktop-logo {
+    display: none;
+  }
+
+  .side-bar {
+    z-index: 20;
+  }
+
+  .navbar{
+    padding: 7px 5px;
+  }
+
+  /* Suggestions dropdown */
+  .search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgb(209, 208, 208);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 5px;
+    color: #ff7043;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .suggestion-item {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .suggestion-item:hover {
+    background-color: #898888;
+  }
+
+  .navbar .logo img, .desktop-logo img {
+    height: 40px;
+    width: auto;
+  }
+}
+
+@media (min-width: 801px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+.logout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.logout-modal-content {
+  background: rgb(109, 109, 109);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+/* Modal Button Styles */
+.logout-modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  gap: 15px; /* Add some space between the buttons */
+}
+
+/* Cancel Button Style */
+.logout-cancel-btn,
+.logout-confirm-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 120px; /* Set a fixed width for both buttons */
+}
+
+.logout-cancel-btn {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.logout-cancel-btn:hover {
+  background-color: #ddd;
+}
+
+/* Confirm Button Style */
+.logout-confirm-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.logout-confirm-btn:hover {
+  background-color: #e53935; /* Darker red when hovered */
+}

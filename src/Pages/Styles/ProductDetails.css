@@ -1,0 +1,264 @@
+/* Font Imports from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap');
+
+/* Apply the color theme to the product detail container */
+.product-detail-container {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #f0f0f0, #f9f9f9); /* Light gradient for a modern look */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-family: 'Roboto', sans-serif; /* Applying Roboto font */
+}
+
+/* For mobile view, stack the content vertically */
+.product-detail-container.mobile {
+  flex-direction: column;
+  text-align: center;
+}
+
+.image-slider {
+  flex: 1;
+  max-width: 500px;
+  position: relative; /* To position the slider controls */
+}
+
+.image-slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Position the slider buttons outside the image */
+.image-slider .slick-prev, .image-slider .slick-next {
+  background-color: #ff5722;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-20%); /* Adjusted to center vertically */
+  z-index: 2; /* Ensure the buttons are on top of the image */
+}
+
+.image-slider .slick-prev {
+  left: -20px; /* Move to the left of the image */
+}
+
+.image-slider .slick-next {
+  right: -20px; /* Move to the right of the image */
+}
+
+
+.image-slider .slick-prev:hover, .image-slider .slick-next:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+  transform: translateY(-1px); /* Slight hover effect */
+}
+
+/* Product Info Styles */
+.product-info {
+  flex: 1;
+  max-width: 500px;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.product-info h2 {
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font for headers */
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #d32f2f; /* Dark red color */
+}
+
+.product-info p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.price-quantity h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #c62828; /* Darker red for price */
+}
+
+/* Buttons Styling */
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 12px 25px;
+  background-color: #ff5722; /* Bright orange */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font for buttons */
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.buttons button:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+  transform: translateY(-2px); /* Hover effect for buttons */
+}
+
+/* Other Details Section */
+.other-details {
+  background-color: #fff;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.other-details h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #d32f2f;
+}
+
+.other-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.other-details li {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.other-details li strong {
+  color: #333;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  .product-detail-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-slider {
+    max-width: 100%;
+  }
+
+  .product-info {
+    padding: 15px;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}
+
+/* Return Policy Section */
+.return-policy {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f8e9; /* Light green background for the policy section */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.return-policy p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.return-policy .learn-more-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #1976d2; /* Blue color for the link */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.return-policy .learn-more-link:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the "More Details" and "Less Details" button */
+.toggle-details-btn {
+  background: linear-gradient(135deg, #f0f0f0, #f9f9f9);
+  color: #1976d2;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.toggle-details-btn:hover {
+  color: #1565c0; /* Darker blue when hovering */
+  text-decoration: underline;
+}
+/* Styling for the size chart container */
+.size-chart {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.size-chart h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #d32f2f;
+}
+
+.size-chart table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.size-chart th, .size-chart td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.size-chart th {
+  background-color: #f1f1f1;
+}
+
+.size-chart td {
+  font-size: 1.1rem;
+}
+
+.size-chart td[colSpan="2"] {
+  text-align: left;
+}
+
+/* Styling for the "Show/Hide Size Chart" button */
+.toggle-size-chart-btn {
+  background: linear-gradient(135deg, #f0f0f0, #f9f9f9);
+  color: #1976d2;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.toggle-size-chart-btn:hover {
+  color: #1565c0; /* Darker blue on hover */
+  text-decoration: underline;
+}

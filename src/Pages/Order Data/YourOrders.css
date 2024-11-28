@@ -1,0 +1,354 @@
+/* Container for the Your Orders page */
+.your-orders-container {
+    padding: 2rem;
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.your-orders-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Orders Section */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Order card layout */
+.order-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.order-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+}
+
+/* Right-side details layout */
+.order-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #444;
+}
+
+.order-item-details h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.order-item-details p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.order-item-details .order-quantity,
+.order-item-details .order-price {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Quantity and price layout */
+.order-item-details .order-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Order status at the bottom */
+.order-status {
+    font-style: italic;
+    color: #888;
+    font-size: 1rem;
+}
+
+/* Order Price */
+.order-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Responsive styling */
+@media (max-width: 900px) {
+    .your-orders-container {
+        width: 85%;
+    }
+
+    .order-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .order-item-details {
+        gap: 0.8rem;
+    }
+
+    .order-item-details h3 {
+        font-size: 1.2rem;
+    }
+
+    .order-price {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .your-orders-container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .order-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .order-item-details {
+        gap: 0.5rem;
+    }
+
+    .order-item-details h3 {
+        font-size: 1.1rem;
+    }
+
+    .order-item-details .order-quantity,
+    .order-item-details .order-price {
+        font-size: 0.9rem;
+    }
+
+    .order-status {
+        font-size: 0.9rem;
+    }
+
+    .order-price {
+        font-size: 1rem;
+    }
+}
+
+/* Styling the buttons */
+.order-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-again-btn,
+.cancel-order-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.order-again-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.order-again-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-order-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.cancel-order-btn:hover {
+    background-color: #e53935;
+}
+
+/* Optional: Styling the product description */
+.product-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+/* Modal Overlay */
+.cancel-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.cancel-modal-content {
+    background-color: #fff;
+    position: sticky;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Header */
+.cancel-modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Modal Actions */
+.cancel-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+/* Button Styles */
+.cancel-confirm-btn, .cancel-cancel-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-confirm-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.cancel-confirm-btn:hover {
+    background-color: #e53935;
+}
+
+.cancel-cancel-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.cancel-cancel-btn:hover {
+    background-color: #45a049;
+}
+
+.Shop-Now-Button{
+    background-color: #ff5722; /* Bright orange */
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.25rem; /* Increased padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    gap: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s; /* Animation effects */
+}
+
+.Shop-Now-Button:hover{
+    background-color: #e65100; /* Darker Orange */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Style for the select dropdown (reason select) */
+.reason-select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+/* Hover state for the select dropdown */
+.reason-select:hover {
+    border-color: #ff5722; /* Orange border color on hover */
+    background-color: #fff; /* Light background on hover */
+}
+
+/* Focus state for the select dropdown */
+.reason-select:focus {
+    border-color: #4CAF50; /* Green border color on focus */
+    outline: none; /* Remove default browser outline */
+    background-color: #fff; /* Light background on focus */
+}
+
+/* Optional: Style for the other reason text area (when "Other" is selected) */
+.other-reason-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover state for the other reason text area */
+.other-reason-input:hover {
+    border-color: #ff5722;
+    background-color: #fff;
+}
+
+/* Focus state for the other reason text area */
+.other-reason-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Close icon styling for modals */
+.close-modal-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .close-modal-icon:hover {
+    color: #ff0000;
+  }
+  

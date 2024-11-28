@@ -1,0 +1,150 @@
+/* Modal overlay */
+.payment-modal-overlay {
+    position: fixed;
+    padding: 2rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1005;
+}
+
+/* Modal content */
+.payment-modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    max-height: 80vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; /* Reduced font size */
+    position: relative;
+}
+
+/* Modal close button */
+.payment-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem; /* Reduced font size */
+    color: #333;
+    transition: color 0.3s ease;
+    z-index: 1010;
+}
+
+.payment-modal-close:hover {
+    color: #f57c00;
+}
+
+/* Modal header */
+.payment-modal-header {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.payment-modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem; /* Reduced font size */
+    font-weight: 600;
+    color: #333;
+}
+
+/* Payment method section */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Reduced gap */
+}
+
+/* Payment method radio buttons */
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Reduced gap */
+    font-size: 1rem; /* Reduced font size */
+}
+
+.payment-method input[type='radio'] {
+    width: 18px; /* Slightly smaller radio buttons */
+    height: 18px; /* Slightly smaller radio buttons */
+    accent-color: #ff5722;
+}
+
+/* Proceed button */
+.payment-proceed-button {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 20px; /* Reduced padding */
+    font-size: 1.1rem; /* Reduced font size */
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 1.8rem; /* Reduced top margin */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.payment-proceed-button:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .payment-modal-content {
+        padding: 1.2rem;
+        max-width: 90%;
+        max-height: 70vh;
+    }
+
+    .payment-modal-close {
+        font-size: 1.2rem; /* Reduced font size */
+    }
+
+    .payment-modal-header h2 {
+        font-size: 1.4rem; /* Reduced font size */
+    }
+
+    .payment-method {
+        font-size: 0.95rem; /* Reduced font size */
+    }
+
+    .payment-proceed-button {
+        font-size: 1rem; /* Reduced font size */
+    }
+}
+
+/* Small screen adjustments below 450px */
+@media (max-width: 450px) {
+    .payment-modal-content {
+        padding: 1rem;
+        max-width: 80%;
+        max-height: 80vh;
+    }
+
+    .payment-modal-close {
+        font-size: 1.1rem; /* Reduced font size */
+    }
+
+    .payment-modal-header h2 {
+        font-size: 1.3rem; /* Reduced font size */
+    }
+
+    .payment-method {
+        font-size: 0.9rem; /* Reduced font size */
+    }
+
+    .payment-proceed-button {
+        padding: 9px 18px; /* Reduced padding */
+        font-size: 1rem; /* Reduced font size */
+    }
+}

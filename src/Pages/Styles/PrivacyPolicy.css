@@ -1,0 +1,161 @@
+/* General Styling */
+
+/* Main container for Privacy Policy */
+.privacy-policy-container {
+    padding: 40px;
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    animation: fadeIn 1.5s ease-out;
+    border: 1px solid #e0f7fa; /* Light blue border for a calming effect */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(202, 202, 252); /* Light purple background */
+  }
+  
+  /* Header Styles */
+  .privacy-policy-container h2 {
+    font-size: 2.4em;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #009688; /* Calming teal color */
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    animation: fadeIn 2s ease-out;
+  }
+  
+  /* Section Titles */
+  .privacy-policy-container h3 {
+    font-size: 1.8em;
+    color: #009688; /* Calming teal color */
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #a7d8d0; /* Soft underline */
+    font-weight: 600;
+    animation: bounceIn 1.2s ease-out;
+  }
+  
+  /* Paragraph Styling */
+  .privacy-policy-container p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #4a4a4a; /* Darker gray for better readability */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  /* List Styling */
+  .privacy-policy-container ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  /* List Items with Fun Bullets */
+  .privacy-policy-container ul li {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+    position: relative;
+    padding-left: 30px; /* Space for icon */
+  }
+  
+  /* Adding playful icons for list items */
+  .privacy-policy-container ul li::before {
+    position: absolute;
+    left: 0;
+    color: #009688; /* Fun teal for consistency */
+    font-size: 1.4em;
+  }
+  
+  /* Strong Text Styling */
+  .privacy-policy-container strong {
+    font-weight: bold;
+    color: #2c3e50; /* Slightly darker gray for emphasis */
+  }
+  
+  /* Hover Effect on Paragraphs */
+  .privacy-policy-container p:hover {
+    color: #00796b; /* Teal color on hover */
+    transition: color 0.3s ease;
+  }
+  
+  /* Contact Us Link */
+  .contact-us-link {
+    color: #009688;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .contact-us-link:hover {
+    color: #00796b; /* Hover effect */
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(15px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .privacy-policy-container {
+      padding: 30px;
+      margin-bottom: 5rem;
+    }
+  
+    .privacy-policy-container h2 {
+      font-size: 2em;
+    }
+  
+    .privacy-policy-container h3 {
+      font-size: 1.6em;
+    }
+  
+    .privacy-policy-container p,
+    .privacy-policy-container ul li {
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .privacy-policy-container {
+      padding: 20px;
+    }
+  
+    .privacy-policy-container h2 {
+      font-size: 1.7em;
+    }
+  
+    .privacy-policy-container h3 {
+      font-size: 1.5em;
+    }
+  
+    .privacy-policy-container p,
+    .privacy-policy-container ul li {
+      font-size: 0.95em;
+    }
+  }
+  

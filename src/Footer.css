@@ -1,0 +1,45 @@
+/* Footer styles specific to Footer component */
+.Footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #ff7043; /* Same Warm Orange as header */
+    color: #000; /* Black text for contrast */
+    text-align: center;
+    padding: 0.8rem;
+    width: 100%;
+    height:70px;
+    z-index: 1000;
+}
+
+/* Footer links container */
+.footer-links {
+    margin-top: 0.2rem;
+}
+
+/* Footer link button styles */
+.footer-links-btn {
+    background: none;
+    border: none;
+    color: #fff; /* White text on links */
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    text-decoration: underline;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect for footer links */
+.footer-links-btn:hover {
+    color: blue; /* Darker Orange-Red for hover effect */
+}
+
+@media (max-width: 800px) {
+    .footer-links{
+        display: none;
+    }
+    .Footer{
+        height: 50px;
+    }
+}
