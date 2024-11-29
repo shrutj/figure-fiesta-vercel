@@ -46,7 +46,7 @@ const customStyles = {
     }),
 };
 
-const Shop = ({ database, Ref, userData, setUserData, update, loginCheck, allProducts, setAllProducts, categoryFilter, homepageData, setShowProductId, showProductId, navSearchTerm, sizeChartData }) => {
+const Shop = ({ database, Ref, userData, setUserData, update, loginCheck, allProducts, setAllProducts, categoryFilter, homepageData, setShowProductId, showProductId, navSearchTerm, sizeChartData, setNavSearchTerm }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(categoryFilter);
     const [sortOrder, setSortOrder] = useState('All');
@@ -70,6 +70,7 @@ const Shop = ({ database, Ref, userData, setUserData, update, loginCheck, allPro
     useEffect(() => {
         if (navSearchTerm) {
             setSearchTerm(navSearchTerm);
+            setNavSearchTerm('');
         }
     }, [navSearchTerm]);
 

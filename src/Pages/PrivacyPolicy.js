@@ -75,17 +75,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="policy-section">
-                <h3 className="section-title">8. Account Deletion</h3>
-                <p className="section-content">
-                    If you wish to delete your account, you can do so by navigating to your User Profile section and clicking the "Delete Account" button. Please note that deleting your account will permanently remove your personal data from our system, including your name, email, phone number, and delivery address.
-                </p>
-                <p className="section-content">
-                    However, your purchase history will not be deleted. We retain this information for record-keeping purposes and for providing you with any necessary post-purchase support. If you choose to delete your account, you will no longer be able to log in to your profile or use our services.
-                </p>
-            </section>
-
-            <section className="policy-section">
-                <h3 className="section-title">9. Contact Us</h3>
+                <h3 className="section-title">8. Contact Us</h3>
                 <p className="section-content">
                     If you have any questions or concerns about this Privacy Policy or how we handle your data, feel free to contact us at: <span onClick={() => { navigate('/contact') }} className='contact-us-link'>Contact Us</span>
                 </p>

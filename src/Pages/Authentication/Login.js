@@ -19,10 +19,8 @@ const Login = ({ auth, signInWithEmailAndPassword, deleteUser, child, get, onVal
         setLoading(true);
         try {
             const user = await signInWithEmailAndPassword(auth, email, password);
-            console.log("User",auth.currentUser);
             if (user.user.emailVerified === false) {
                 const User = auth.currentUser;
-                
                 await remove(Ref.ref(database, 'users/' + user.user.uid));
                 await deleteUser(User);
                 toast.error('Please create your account first', { className: 'custom-toast-error' });
