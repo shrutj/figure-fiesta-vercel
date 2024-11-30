@@ -60,7 +60,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
 
     try {
       // Step 1: Request a Razorpay order from the backend
-      const response = await axios.post('https://figure-fiesta-vercel-2jt2.vercel.app/api/create-order', { amount: totalAmount * 100 }); // Amount in paise
+      const response = await axios.post('https://figure-fiesta-vercel.vercel.app/api/create-order', { amount: totalAmount * 100 }); // Amount in paise
       const orderData = response.data;
 
       // Step 2: Initialize Razorpay with the order data
@@ -95,7 +95,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
 
   const handlePaymentSuccess = (paymentResponse, paymentOrderId) => {
     // Send payment details to the backend for verification and order processing
-    axios.post('https://figure-fiesta-vercel-2jt2.vercel.app/api/payment-success', {
+    axios.post('https://figure-fiesta-vercel.vercel.app/api/payment-success', {
       paymentId: paymentResponse.razorpay_payment_id,
       orderId: paymentResponse.razorpay_order_id,
       signature: paymentResponse.razorpay_signature,

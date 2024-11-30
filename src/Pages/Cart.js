@@ -20,7 +20,7 @@ const Cart = ({ userData, setUserData, database, Ref, update, loginCheck, allPro
 
     // Reversing the order of cartItemIds keys and filtering cartItems
     const reversedItemIds = Object.keys(cartItemIds).reverse(); // Get keys in reverse order
-    const cartItems = items.filter(item => reversedItemIds.includes(item.id.toString())).reverse();
+    const cartItems = items.filter(item => reversedItemIds.includes(item.id.toString()));
 
     const itemCountMap = cartItemIds;
 
