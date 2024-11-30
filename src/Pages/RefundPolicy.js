@@ -34,7 +34,7 @@ const policies = {
     description: (
       <>
         <p>
-          We want you to be 100% happy with your purchase! If for any reason you’re not loving your product, you’ve got 7 days to start the return or replacement process. We’ll arrange a pickup from your location within 7 working days, and your refund will be processed within 7-10 working days after the product is picked up.
+          We want you to be 100% happy with your purchase! If for any reason you’re not loving your product, you’ve got 7 days to start the return or replacement process. We’ll arrange a pickup from your location within 7 working days, and your refund will be processed within 10 working days after the product is picked up.
         </p>
         <p>
           Just remember, <strong>working days</strong> are Monday through Saturday—Sundays are when we recharge, so please don't include them when calculating your return timeline.
@@ -51,8 +51,10 @@ const policies = {
   cancellationPolicy: {
     title: "🚫 Cancellation Policy",
     description: (
-      <p>
-        If you change your mind, no worries! You can cancel your order anytime before it has been processed by the seller. Just go to your orders section in the<strong> User Profile </strong>Page and Press the <b>Cancel Order</b> button!
+      <p style={{fontSize:'medium'}}>
+        If you change your mind, no worries! You can cancel your order anytime before it has been processed by the seller. Just go to your orders section in the <strong>User Profile</strong> page and press the <b>Cancel Order</b> button!
+        <br />
+        <strong>Refund for canceled orders (in case of online payment)</strong> will be processed within <strong>7-10 working days</strong> after the cancellation. Please note that working days are Monday through Saturday.
       </p>
     ),
   },
@@ -117,12 +119,12 @@ const RefundPolicy = ({ productPolicy }) => {
             <li>🤔 Didn't quite love the product</li>
           </ul>
         </section>
+
         <h3>{policies.cancellationPolicy.title}</h3>
         <div className="policy-description">{policies.cancellationPolicy.description}</div>
         <p>
-          <strong>Please note:</strong> The replacement or return of any product is valid only if the product is not damaged or changed by the user. In such cases, a refund may not be processed and the user will be solely responsible for such occurence. Also, <b>Please note</b> that the seller retains the right to deny a replacement request if the product is determined to be in its original condition, free of defects, and not damaged during delivery.
+          <strong>Please note:</strong> The replacement or return of any product is valid only if the product is not damaged or changed by the user. In such cases, a refund may not be processed and the user will be solely responsible for such occurrences. Also, <b>Please note</b> that the seller retains the right to deny a replacement request if the product is determined to be in its original condition, free of defects, and not damaged during delivery.
         </p>
-
       </div>
     );
   }

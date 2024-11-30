@@ -6,7 +6,7 @@ const TermsConditions = () => {
     const navigate = useNavigate();
   return (
     <div className="terms-conditions-container">
-      <h2 className="terms-title">📜 Terms & Conditions</h2>
+      <h2 className="terms-title"> Terms & Conditions</h2>
       <p className="last-updated">Last updated: October 2024</p>
 
       <section className="terms-section">

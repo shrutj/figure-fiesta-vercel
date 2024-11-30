@@ -65,7 +65,6 @@
 
 /* Adding playful icons for list items */
 .refund-policy ul li::before {
-  content: "🎉";
   position: absolute;
   left: 0;
   color: #009688; /* Fun teal for consistency */
