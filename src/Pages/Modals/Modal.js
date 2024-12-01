@@ -93,14 +93,32 @@ const Modal = ({ isVisible, onClose, userData, selectedProductIds, database, Ref
     console.log(items);
 
     // Calculate total amount based on quantities and product prices
-    const getTotalAmount = () => {
-        return Object.keys(quantityMap).reduce((total, productId) => {
+    const getAmountWithoutDelivery=()=>{
+        let totalAmount = Object.keys(quantityMap).reduce((total, productId) => {
             const product = items.find(item => item.id.toString() === productId.toString());
             if (product) {
                 total += product.price * quantityMap[productId];
             }
             return total;
         }, 0).toFixed(2);
+
+        return totalAmount;
+    }
+    const getTotalAmount = () => {
+        let totalAmount = Object.keys(quantityMap).reduce((total, productId) => {
+            const product = items.find(item => item.id.toString() === productId.toString());
+            if (product) {
+                total += product.price * quantityMap[productId];
+            }
+            return total;
+        }, 0).toFixed(2);
+
+        // Check if delivery charge applies (total < 500)
+        if (parseFloat(totalAmount) < 500) {
+            totalAmount = (parseFloat(totalAmount) + 59).toFixed(2); // Add delivery charge of ₹59
+        }
+
+        return totalAmount;
     };
 
     const selectedProducts = Object.keys(quantityMap).map(productId => {
@@ -377,8 +395,8 @@ const Modal = ({ isVisible, onClose, userData, selectedProductIds, database, Ref
                 ) : (
                     <p>No products selected.</p>
                 )}
-
-                <h3>Total: ₹{getTotalAmount()}</h3>
+                {(getAmountWithoutDelivery() > 499)? <></> : <h3>+ Delivery Charges: ₹ 59.00</h3>} <br />
+                <h3>Total: ₹{getTotalAmount()} </h3>
                 <button className="proceed-button" onClick={onProceed}>Proceed</button>
             </div>
 

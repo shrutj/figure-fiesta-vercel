@@ -230,6 +230,7 @@ const YourOrders = (props) => {
                   >
                     {product.description}
                   </p>
+                  
                   <div className="order-info">
                     <span>Quantity: {order.quantity}</span>
                     <span>Order Date: {new Date(order.date).toLocaleDateString()}</span>
@@ -246,7 +247,6 @@ const YourOrders = (props) => {
                   )}
 
                   <div className="order-status">{getStatusMessage(order.status)}</div>
-
                   <div className="order-actions">
                     <button
                       className="order-again-btn"

@@ -19,6 +19,7 @@ import RefundPolicy from './Pages/RefundPolicy';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 import TermsConditions from './Pages/Terms&Conditions';
 import loadingAnimation from './Assets/loadingAnimation.gif'
+import ShippingPolicy from './Pages/ShippingPolicy'
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, deleteUser, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
@@ -129,7 +130,8 @@ const App = () => {
                             <Route path="/your-orders" element={<YourOrders sizeChartData={sizeChartData} allProducts={allProducts} setAllProducts={setAllProducts} userOrders={userOrders} setUserOrders={setUserOrders} showProductId={showProductId} setShowProductId={setShowProductId} database={database} Ref={Ref} update={update} userData={userData} setUserData={setUserData} onValue={onValue}  />}  />
                             <Route path="/refund-policy" element={<RefundPolicy productPolicy={refundPolicy}   />}  />
                             <Route path="/privacy-policy" element={<PrivacyPolicy  />}  />
-                            <Route path="//terms-&-conditions" element={<TermsConditions  />}  />
+                            <Route path="/terms-&-conditions" element={<TermsConditions  />}  />
+                            <Route path="/shipping-policy" element={<ShippingPolicy />} />
                         </Routes>
                     
                     <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover stacked />

@@ -82,6 +82,14 @@
     transition: color 0.3s ease;
 }
 
+.payment-note {
+    font-size: 1rem;
+    color: #f57c00; /* Orange color to highlight the note */
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+
 /* Animations */
 @keyframes fadeIn {
     0% {
