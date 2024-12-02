@@ -31,67 +31,67 @@ const ProductDetail = ({ showProductId, allProducts, setAllProducts, database, R
   const handleAddToCart = (id, event) => {
     event.preventDefault();
     if (!loginCheck) {
-        toast.info('Please Log In to your account first to get amazing deals.', {
-            className: 'custom-toast-info'
-        });
+      toast.info('Please Log In to your account first to get amazing deals.', {
+        className: 'custom-toast-info'
+      });
     } else {
-        const database_ref = Ref.ref(database, 'users/' + userData.userUid);
-        const updatedData = { ...userData };
+      const database_ref = Ref.ref(database, 'users/' + userData.userUid);
+      const updatedData = { ...userData };
 
-        // Check if the item is already in the cart
-        const currentQuantity = updatedData.cartItemsId[id] || 0;
+      // Check if the item is already in the cart
+      const currentQuantity = updatedData.cartItemsId[id] || 0;
 
-        if (currentQuantity < 5) {
-            // If the item is already in the cart, increment the quantity
-            updatedData.cartItemsId[id] = currentQuantity + 1;
-        } else {
-            toast.info('You\'ve hit the 5-item per order limit! No problem – just place another order and keep shopping!', {
-                className: 'custom-toast-info'
-            });
-            return; // Don't add more than 5
-        }
+      if (currentQuantity < 5) {
+        // If the item is already in the cart, increment the quantity
+        updatedData.cartItemsId[id] = currentQuantity + 1;
+      } else {
+        toast.info('You\'ve hit the 5-item per order limit! No problem – just place another order and keep shopping!', {
+          className: 'custom-toast-info'
+        });
+        return; // Don't add more than 5
+      }
 
-        // Update the database with the modified cart data
-        update(database_ref, updatedData)
-            .then(() => {
-                toast.success('Item added to cart', {
-                    className: 'custom-toast-success'
-                });
-                sessionStorage.setItem('userData', JSON.stringify(updatedData));
-                setUserData(updatedData);
-            })
-            .catch((error) => {
-                console.error('Error updating data:', error);
-            });
+      // Update the database with the modified cart data
+      update(database_ref, updatedData)
+        .then(() => {
+          toast.success('Item added to cart', {
+            className: 'custom-toast-success'
+          });
+          sessionStorage.setItem('userData', JSON.stringify(updatedData));
+          setUserData(updatedData);
+        })
+        .catch((error) => {
+          console.error('Error updating data:', error);
+        });
     }
-};
+  };
 
 
   const handleBuyNow = (id, event) => {
     event.preventDefault();
     if (!loginCheck) {
-        toast.info('Please Log In to your account first to get amazing deals.', {
-            className: 'custom-toast-info'
-        });
+      toast.info('Please Log In to your account first to get amazing deals.', {
+        className: 'custom-toast-info'
+      });
     } else {
-        const item = allProducts.find(item => item.id === id);
-        if (item) {
-            setBuyNowProductId([id]);
-            setModalVisible(true);
-        }
+      const item = allProducts.find(item => item.id === id);
+      if (item) {
+        setBuyNowProductId([id]);
+        setModalVisible(true);
+      }
     }
   };
 
   let textToShow = "";
-  if(product.returnPolicy === 'no_return'){
+  if (product.returnPolicy === 'no_return') {
     textToShow = "No Return Policy";
     refundPolicy.current = "no_return";
   }
-  else if(product.returnPolicy === '7_days_replacement'){
+  else if (product.returnPolicy === '7_days_replacement') {
     textToShow = "Seven Days Replacement Policy";
     refundPolicy.current = "7_days_replacement";
   }
-  else if(product.returnPolicy === '7_days_return'){
+  else if (product.returnPolicy === '7_days_return') {
     textToShow = "Seven Days Return Policy";
     refundPolicy.current = "7_days_return";
   }
@@ -147,13 +147,13 @@ const ProductDetail = ({ showProductId, allProducts, setAllProducts, database, R
     <div className={`product-detail-container ${isMobile ? "mobile" : "desktop"}`}>
       <div className="image-slider">
         {product.imageUrls.length <= 1 ? <img src={product.imageUrls[0]} alt={product.name} /> :
-        <Slider {...settings}>
-          {product.imageUrls.map((url, index) => (
-            <div key={index}>
-              <img src={url} alt={`${product.name} - Image ${index + 1}`} />
-            </div>
-          ))}
-        </Slider>
+          <Slider {...settings}>
+            {product.imageUrls.map((url, index) => (
+              <div key={index}>
+                <img src={url} alt={`${product.name} - Image ${index + 1}`} />
+              </div>
+            ))}
+          </Slider>
         }
       </div>
 
@@ -165,10 +165,10 @@ const ProductDetail = ({ showProductId, allProducts, setAllProducts, database, R
           {product.priceWithoutDiscount && product.priceWithoutDiscount !== product.price ? (
             <>
               <h3>Price: &ensp;
-              <span className="original-price" style={{ textDecoration: 'line-through', marginRight: '10px' }} >
-              ₹{product.priceWithoutDiscount}
-              </span>
-              <span className="discounted-price">₹{product.price}</span>
+                <span className="original-price" style={{ textDecoration: 'line-through', marginRight: '10px' }} >
+                  ₹{product.priceWithoutDiscount}
+                </span>
+                <span className="discounted-price">₹{product.price}</span>
               </h3>
             </>
           ) : (
@@ -176,32 +176,25 @@ const ProductDetail = ({ showProductId, allProducts, setAllProducts, database, R
           )}
         </div>
 
-        {(product.availability === 'will_be_available_soon' || product.quantityAvailable === '0') ? 
-          <p>Oops! 🛑 We are Out of stock' </p> : 
+        {(product.availability === 'will_be_available_soon' || product.quantityAvailable === '0') ?
+          <p>Oops! 🛑 We are Out of stock' </p> :
           <div className="buttons">
             <button className="add-to-cart" onClick={(e) => handleAddToCart(product.id, e)}>
               <FontAwesomeIcon icon={faCartPlus} /> Add to Cart
             </button>
             <button className="buy-now" onClick={(e) => handleBuyNow(product.id, e)}>
               <FontAwesomeIcon icon={faShoppingCart} /> {product.availability === 'available_to_preorder' ? ' Preorder' : ' Buy Now'}
-            </button> 
+            </button>
           </div>
         }
 
-        <div className="return-policy">
-          <p>
-            <strong>Return/Replacement Policy:</strong> {textToShow}
-          </p>
-          <p onClick={()=>{navigate('/refund-policy')}} className="learn-more-link">Learn More</p>
-        </div>
-
         {showSizeChart && renderSizeChart()}
         {product.sizeChart === 'yes' &&
-        <div style={{display: 'block', width:'100%', alignItems:'center'}}>
-        <button onClick={() => setShowSizeChart(!showSizeChart)} className="toggle-size-chart-btn">
-          {showSizeChart ? (<>Hide Size Chart<FontAwesomeIcon icon={faAngleUp} /></>) : (<>Show Size Chart<FontAwesomeIcon icon={faAngleDown} /></>)}
-        </button>
-        </div>}
+          <div style={{ display: 'block', width: '100%', alignItems: 'center' }}>
+            <button onClick={() => setShowSizeChart(!showSizeChart)} className="toggle-size-chart-btn">
+              {showSizeChart ? (<>Hide Size Chart<FontAwesomeIcon icon={faAngleUp} /></>) : (<>Show Size Chart<FontAwesomeIcon icon={faAngleDown} /></>)}
+            </button>
+          </div>}
 
         {showDetails ? (
           <div className="other-details">
@@ -219,18 +212,27 @@ const ProductDetail = ({ showProductId, allProducts, setAllProducts, database, R
         <button onClick={() => setShowDetails(!showDetails)} className="toggle-details-btn">
           {showDetails ? (<>Less Details<FontAwesomeIcon icon={faAngleUp} /></>) : (<>More Details<FontAwesomeIcon icon={faAngleDown} /></>)}
         </button>
+
+        {/* Return Policy at the Bottom */}
+        <div className="return-policy">
+          <p>
+            <strong>Return/Replacement Policy:</strong> {textToShow}
+          </p>
+          <p onClick={() => { navigate('/refund-policy') }} className="learn-more-link">Learn More</p>
+        </div>
       </div>
 
-      <Modal 
-        isVisible={modalVisible} 
-        onClose={handleModalClose} 
-        userData={userData} 
+
+      <Modal
+        isVisible={modalVisible}
+        onClose={handleModalClose}
+        userData={userData}
         selectedProductIds={buyNowProductId}
         database={database}
         Ref={Ref}
         update={update}
         allProducts={allProducts}
-        setAllProducts={setAllProducts} 
+        setAllProducts={setAllProducts}
         setModalVisible={setModalVisible}
         setUserData={setUserData}
         sizeChartData={sizeChartData}
