@@ -1,10 +1,9 @@
 // api/create-order.js
 const Razorpay = require('razorpay');
-const crypto = require('crypto');
 
 const razorpay = new Razorpay({
-  key_id: 'rzp_test_rq92ZJiAt5qXIY', // Replace with your Razorpay Key ID
-  key_secret: 'JCxsedlvNRfN9hdMjVWWBrAH', // Replace with your Razorpay Key Secret
+  key_id: process.env.RAZORPAY_KEY_ID, // Use the environment variable for Razorpay Key ID
+  key_secret: process.env.RAZORPAY_KEY_SECRET, // Use the environment variable for Razorpay Key Secret
 });
 
 module.exports = async (req, res) => {

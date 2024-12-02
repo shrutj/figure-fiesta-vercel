@@ -6,7 +6,9 @@ module.exports = (req, res) => {
     const { paymentId, orderId, signature } = req.body;
 
     const body = orderId + "|" + paymentId;
-    const expectedSignature = crypto.createHmac('sha256', 'JCxsedlvNRfN9hdMjVWWBrAH')
+
+    // Use the Razorpay secret key from environment variables
+    const expectedSignature = crypto.createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
                                     .update(body.toString())
                                     .digest('hex');
 
