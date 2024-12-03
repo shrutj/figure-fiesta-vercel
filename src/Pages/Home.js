@@ -76,9 +76,11 @@ const Home = ({ homepageData, allProducts, setAllProducts, setCategoryFilter, sh
                 <h2>Categories</h2>
                 <div className="category-cards">
                     {categories.map((category, index) => (
-                        <div key={index} className="category-card" onClick={(e) => handleCategoryClick(e, category.name)}>
-                            <img src={category.image} alt={category.name} />
-                            <p>{category.name}</p>
+                        <div>
+                            <div className="category-card" onClick={(e) => handleCategoryClick(e, category.name)}>
+                                <img src={category.image} alt={category.name} />
+                            </div>
+                            <p className="category-name">{category.name}</p>
                         </div>
                     ))}
                 </div>

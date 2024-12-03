@@ -175,7 +175,6 @@
     background-color: #e64a19; /* Darker shade on hover */
     transform: translateY(-2px);
 }
-
 /* Category Cards Section */
 .categories-section {
     margin-bottom: 2rem;
@@ -237,15 +236,19 @@
 
 .category-card img {
     width: 100%;
-    height: auto;
+    height: 15vw;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.category-card p {
+.category-name {
     font-weight: bold;
     color: #333;
     margin-top: 1rem;
+    font-size: 1rem; /* Set appropriate font size for category name */
+    text-transform: capitalize; /* Capitalize first letters of category names */
+    letter-spacing: 1px; /* Small letter spacing for better readability */
+    font-family: 'Poppins', sans-serif; /* Match the font used in the rest of the page */
 }
 
 /* Custom Scrollbar for horizontal scrolling */
@@ -416,69 +419,70 @@
         background: #999;
     }
 }
-
+/* Adjustments for Category Section on screens below 800px */
 @media (max-width: 800px) {
     .categories-section {
-        margin-bottom: 1.2rem;
+        margin-bottom: 1rem;
+        padding: 0 1rem; /* Add padding on the sides for mobile */
     }
 
     .categories-section h2 {
-        font-size: 1.25rem; /* Even smaller heading size */
+        font-size: 1.2rem; /* Smaller heading size */
         margin-bottom: 0.5rem;
+        text-align: center; /* Center the heading */
     }
 
     .category-cards {
         display: flex;
         flex-wrap: nowrap;
-        gap: 0.25rem; /* Even smaller gap */
+        gap: 0.5rem;
         overflow-x: auto;
         scroll-behavior: smooth;
-        padding-bottom: 0.25rem; /* Reduced padding for scrolling */
+        padding-bottom: 0.25rem;
         position: relative;
     }
 
     .category-card {
         flex: 0 0 auto;
-        width: 110px; /* Smaller card width */
-        height: 110px; /* Same as width for circular effect */
-        padding: 0.5rem; /* Reduced padding */
+        width: 140px; /* Adjusted width for smaller screens */
+        height: 140px; /* Square aspect for cards */
+        padding: 0.5rem;
         text-align: center;
-        font-size: 0.75rem; /* Smaller text size */
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: 0.9rem; /* Slightly smaller text size */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
         border-radius: 50%;
-        position: relative; /* Ensures text can be positioned on top of the image */
-        overflow: hidden; /* Prevents overflow */
+        position: relative;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .category-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 50%; /* Circular image */
-        position: absolute; /* Allow image to fill the circle */
+        border-radius: 50%;
+        position: absolute;
         top: 0;
         left: 0;
     }
 
     .category-card p {
         font-weight: bold;
-        color: #ffffff; /* White color for better contrast */
-        margin-top: 1rem;
-        position: absolute; /* Position text on top of the image */
-        bottom: 10px; /* Position text near the bottom of the image */
-        left: 50%;
-        transform: translateX(-50%); /* Center text horizontally */
-        font-size: 0.75rem; /* Smaller text size */
+        color: #ffffff; /* White text for visibility */
+        position: absolute;
+        bottom: 10px;
+        transform: translateX(-50%);
+        font-size: 0.8rem; /* Adjust text size for better fit */
         text-shadow: 
             0 0 8px #ffffff, 
             0 0 12px #ffffff, 
-            0 0 18px #ff4500,  /* Orangish Red glow */
+            0 0 18px #ff4500, /* Orangish Red glow */
             0 0 24px #ff4500, 
             0 0 30px #ff4500, 
             0 0 40px #ff4500, 
             0 0 50px #ff4500, 
-            0 0 18px #ff6347,  /* Tomato Red glow */
-            0 0 24px #ff6347;  /* Adding reddish tone */
+            0 0 18px #ff6347, /* Tomato Red glow */
+            0 0 24px #ff6347;
     }
 }
