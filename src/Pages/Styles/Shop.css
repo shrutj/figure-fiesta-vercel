@@ -74,7 +74,7 @@
 
 /* Responsive styles for extra small screens (below 480px) */
 /* Responsive styles for extra small screens (below 480px) */
-@media (max-width: 449px) {
+@media (max-width: 450px) {
     .shop-item-card {
         display: flex; /* Use flex layout */
         flex-direction: row; /* Image on the left, details on the right */
