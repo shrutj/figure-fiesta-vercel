@@ -65,7 +65,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
 
       // Step 2: Initialize Razorpay with the order data
       const options = {
-        key: 'rzp_test_rq92ZJiAt5qXIY', // Replace with your Razorpay key
+        key: process.env.RAZORPAY_KEY_ID, // Replace with your Razorpay key
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'Figure Fiesta',
