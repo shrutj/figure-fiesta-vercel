@@ -2,8 +2,8 @@
 const Razorpay = require('razorpay');
 
 const razorpay = new Razorpay({
-  key_id: 'rzp_live_SjJVIFCRlqhNst', // Use the environment variable for Razorpay Key ID
-  key_secret: 'mvCtH6tvbFTgONlkrz6UF6q7', // Use the environment variable for Razorpay Key Secret
+  key_id: process.env.RAZORPAY_KEY_ID, // Use the environment variable for Razorpay Key ID
+  key_secret: process.env.RAZORPAY_KEY_SECRET, // Use the environment variable for Razorpay Key Secret
 });
 
 module.exports = async (req, res) => {
