@@ -1,4 +1,14 @@
 // api/create-order.js
+const express = require('express');
+const app = express();
+
+// CORS middleware
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.figurefiesta.com'); // Or use '*' for all domains
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 const Razorpay = require('razorpay');
 
 const razorpay = new Razorpay({
