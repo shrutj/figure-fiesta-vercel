@@ -1,33 +1,37 @@
-// api/payment-success.js
-const express = require('express');
-const app = express();
-
-// CORS middleware
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://www.figurefiesta.com'); // Or use '*' for all domains
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
 const crypto = require('crypto');
 
-module.exports = (req, res) => {
+export default async function handler(req, res) {
+  // CORS middleware
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.figurefiesta.com'); // Allow only your frontend domain
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allowed HTTP methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allowed headers
+  res.setHeader('Access-Control-Allow-Credentials', 'true'); // If needed for cookies/authentication
+
+  // Handle preflight request (OPTIONS)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end(); // Respond with status 200 for OPTIONS
+  }
+
+  // Handle POST request for payment verification
   if (req.method === 'POST') {
     const { paymentId, orderId, signature } = req.body;
 
+    // Concatenate orderId and paymentId to create the body string
     const body = orderId + "|" + paymentId;
 
-    // Use the Razorpay secret key from environment variables
-    const expectedSignature = crypto.createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
-                                    .update(body.toString())
-                                    .digest('hex');
+    // Generate the expected signature using Razorpay's secret key
+    const expectedSignature = crypto
+      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
+      .update(body.toString())
+      .digest('hex');
 
+    // Compare the expected signature with the received signature
     if (expectedSignature === signature) {
-      res.json({ success: true });
+      return res.status(200).json({ success: true });
     } else {
-      res.json({ success: false });
+      return res.status(400).json({ success: false, message: 'Signature mismatch' });
     }
   } else {
-    res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
-};
+}
