@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = ({ userData, setUserData, database, Ref, update, loginCheck, allProducts, setAllProducts, showProductId, setShowProductId, sizeChartData }) => {
     // State to handle cart items (with object structure)
-    const [cartItemIds, setCartItemIds] = useState(loginCheck ? userData.cartItemsId : {});
+    const [cartItemIds, setCartItemIds] = useState(loginCheck && userData.cartItemsId ? userData.cartItemsId : {});
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedProductIds, setSelectedProductIds] = useState([]);
     const navigate = useNavigate();

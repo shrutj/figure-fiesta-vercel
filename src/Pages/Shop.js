@@ -91,6 +91,9 @@ const Shop = ({ database, Ref, userData, setUserData, update, loginCheck, allPro
             const database_ref = Ref.ref(database, 'users/' + userData.userUid);
             const updatedData = { ...userData };
     
+            // Ensure cartItemsId is initialized as an empty object if not present
+            updatedData.cartItemsId = updatedData.cartItemsId || {};
+    
             // Check if the item is already in the cart
             const currentQuantity = updatedData.cartItemsId[id] || 0;
     

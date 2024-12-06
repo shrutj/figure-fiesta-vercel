@@ -111,25 +111,31 @@ const UserProfile = ({ userData, setUserData, update, database, Ref, deleteUser,
         setShowModal(true); // Show the confirmation modal
     };
 
-    const deleteAccount =  ()=>{
+    const deleteAccount = async () => {
         try {
-        const User = auth.currentUser;
-        deleteUser(User);
-        remove(Ref.ref(database, 'users/' + userData.userUid));
-        sessionStorage.removeItem('userData');
-        setLoginCheck(false);
-        setUserData({});
-        
-        toast.success('Account Deleted Successfully!!', {
-            className: 'custom-toast-success'
-        });
-        navigate('/'); // Optionally redirect after account deletion
-        } catch{
+            const User = auth.currentUser;
+    
+            // Delete the user first
+            await deleteUser(User); // Assuming deleteUser is an async operation
+            
+            // Proceed with the rest of the operations if user is successfully deleted
+            await remove(Ref.ref(database, 'users/' + userData.userUid));
+            sessionStorage.removeItem('userData');
+            setLoginCheck(false);
+            setUserData({});
+            
+            toast.success('Account Deleted Successfully!!', {
+                className: 'custom-toast-success'
+            });
+            navigate('/'); // Optionally redirect after account deletion
+        } catch (error) {
+            // If deleteUser fails or any other operation fails
             toast.info('If you are sure you want to delete account. Please Logout and Login again, then delete this account.', {
                 className: 'custom-toast-info'
             });
         }
     }
+    
 
     const confirmDelete = () => {
         // Call your delete function here (which you will implement)

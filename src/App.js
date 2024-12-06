@@ -88,15 +88,26 @@ const App = () => {
         });
     }, []);
     
+    // const firebaseConfig = {
+    //     apiKey: "AIzaSyAwWznhhP09HYpOZAdu55_6KiRhWaTkHog",
+    //     authDomain: "figure-fiesta.firebaseapp.com",
+    //     projectId: "figure-fiesta",
+    //     storageBucket: "figure-fiesta.appspot.com",
+    //     messagingSenderId: "301445630990",
+    //     appId: "1:301445630990:web:d4d95308f81cf31ee5805f",
+    //     databaseURL: "https://figure-fiesta-default-rtdb.firebaseio.com/",
+    // };
+
     const firebaseConfig = {
-        apiKey: "AIzaSyAwWznhhP09HYpOZAdu55_6KiRhWaTkHog",
-        authDomain: "figure-fiesta.firebaseapp.com",
-        projectId: "figure-fiesta",
-        storageBucket: "figure-fiesta.appspot.com",
-        messagingSenderId: "301445630990",
-        appId: "1:301445630990:web:d4d95308f81cf31ee5805f",
-        databaseURL: "https://figure-fiesta-default-rtdb.firebaseio.com/",
-    };
+        apiKey: "AIzaSyBcJiEMvAWXoA16tMiwh_VD1g0rDmsRUWg",
+        authDomain: "figure-fiesta-7e575.firebaseapp.com",
+        projectId: "figure-fiesta-7e575",
+        storageBucket: "figure-fiesta-7e575.firebasestorage.app",
+        messagingSenderId: "866889663948",
+        appId: "1:866889663948:web:2ce3def48b74fe5b4b8969",
+        databaseURL: "https://figure-fiesta-7e575-default-rtdb.firebaseio.com/",
+      };
+    
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -125,7 +136,7 @@ const App = () => {
                             <Route path="/login" element={<Login signInWithEmailAndPassword={signInWithEmailAndPassword} auth={auth} deleteUser={deleteUser} child={child} get={get} onValue={onValue} setUserData={setUserData} setLoginCheck={setLoginCheck} Ref={Ref} database={database} sendPasswordResetEmail={sendPasswordResetEmail} remove = {remove} setUserOrders={setUserOrders} />} />
                             <Route path="/signup" element={<SignUp createUserWithEmailAndPassword={createUserWithEmailAndPassword} auth={auth} sendEmailVerification={sendEmailVerification} GoogleAuthProvider={GoogleAuthProvider} signInWithPopup={signInWithPopup} database={database} Ref={Ref} set={set} />} />
                             <Route path="/cart" element={<Cart sizeChartData={sizeChartData} userData={userData} setUserData={setUserData} database={database} Ref={Ref} update={update} loginCheck={loginCheck} allProducts={allProducts} setAllProducts={setAllProducts} showProductId={showProductId} setShowProductId={setShowProductId} />} />
-                            <Route path="/user-profile" element={<UserProfile userData={userData} setUserData={setUserData} update={update} database={database} Ref={Ref} />} />
+                            <Route path="/user-profile" element={<UserProfile userData={userData} setUserData={setUserData} update={update} database={database} Ref={Ref} deleteUser={deleteUser} remove={remove} auth={auth} setLoginCheck={setLoginCheck} />} />
                             <Route path="/product-details" element={<ProductDetail showProductId={showProductId} allProducts={allProducts} setAllProducts={setAllProducts} database={database} Ref={Ref} update={update} userData={userData} setUserData={setUserData} loginCheck={loginCheck} refundPolicy={refundPolicy} sizeChartData={sizeChartData}  />} />
                             <Route path="/your-orders" element={<YourOrders sizeChartData={sizeChartData} allProducts={allProducts} setAllProducts={setAllProducts} userOrders={userOrders} setUserOrders={setUserOrders} showProductId={showProductId} setShowProductId={setShowProductId} database={database} Ref={Ref} update={update} userData={userData} setUserData={setUserData} onValue={onValue}  />}  />
                             <Route path="/refund-policy" element={<RefundPolicy productPolicy={refundPolicy}   />}  />
