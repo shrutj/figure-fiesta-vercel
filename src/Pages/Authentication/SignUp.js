@@ -120,7 +120,7 @@ const Signup = ({ createUserWithEmailAndPassword, auth, sendEmailVerification, d
                         phone: phone,
                         address: address,
                         gender: gender, // Added gender field
-                        cartItemsId: {},
+                        cartItemsId: {0:0},
                     });
 
                 } catch (error) {
