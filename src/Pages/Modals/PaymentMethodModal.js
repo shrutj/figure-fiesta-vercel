@@ -94,6 +94,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
   };
 
   const handlePaymentSuccess = (paymentResponse, paymentOrderId) => {
+    console.log("payment id",paymentResponse.razorpay_payment_id, "payment order id",paymentResponse.razorpay_order_id,"signature",paymentResponse.razorpay_signature);
     // Send payment details to the backend for verification and order processing
     axios.post('https://figure-fiesta-vercel.vercel.app/api/payment-success', {
       paymentId: paymentResponse.razorpay_payment_id,
