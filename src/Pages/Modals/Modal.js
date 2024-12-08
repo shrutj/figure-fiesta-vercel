@@ -114,9 +114,9 @@ const Modal = ({ isVisible, onClose, userData, selectedProductIds, database, Ref
         }, 0).toFixed(2);
 
         // Check if delivery charge applies (total < 500)
-        if (parseFloat(totalAmount) < 500) {
-            totalAmount = (parseFloat(totalAmount) + 59).toFixed(2); // Add delivery charge of ₹59
-        }
+        // if (parseFloat(totalAmount) < 500) {
+        //     totalAmount = (parseFloat(totalAmount) + 59).toFixed(2); // Add delivery charge of ₹59
+        // }
 
         return totalAmount;
     };
