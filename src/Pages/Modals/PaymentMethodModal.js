@@ -73,6 +73,7 @@ const PaymentMethodModal = ({ isVisible, onClose, onPaymentSelect, totalAmount, 
         image: logo, // Optional
         order_id: orderData.id,
         handler: function (response) {
+          console.log("response", response);
           handlePaymentSuccess(response, orderData.id);
         },
         prefill: {
